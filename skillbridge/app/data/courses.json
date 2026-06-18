@@ -1,0 +1,20 @@
+{
+  "Python": [
+    {"title": "Python for Everybody", "platform": "Coursera", "url": "https://coursera.org/specializations/python", "hours": 40, "level": "Beginner"},
+    {"title": "100 Days of Code: Python", "platform": "Udemy", "url": "https://udemy.com/course/100-days-of-code", "hours": 60, "level": "Intermediate"}
+  ],
+  "Docker": [
+    {"title": "Docker Mastery", "platform": "Udemy", "url": "https://udemy.com/course/docker-mastery", "hours": 10, "level": "Intermediate"},
+    {"title": "Docker Crash Course for Absolute Beginners", "platform": "YouTube", "url": "https://youtube.com/watch?v=docker", "hours": 2, "level": "Beginner"}
+  ],
+  "AWS": [
+    {"title": "AWS Cloud Practitioner", "platform": "freeCodeCamp", "url": "https://freecodecamp.org/news/aws-certified-cloud-practitioner", "hours": 15, "level": "Beginner"}
+  ],
+  "Kubernetes": [
+    {"title": "Kubernetes for Developers", "platform": "edX", "url": "https://edx.org/course/kubernetes", "hours": 20, "level": "Advanced"}
+  ],
+  "React": [
+    {"title": "React - The Complete Guide", "platform": "Udemy", "url": "https://udemy.com/course/react-the-complete-guide-incl-redux/", "hours": 40, "level": "Intermediate"},
+    {"title": "Learn React for Free", "platform": "Scrimba", "url": "https://scrimba.com/learn/learnreact", "hours": 12, "level": "Beginner"}
+  ]
+}

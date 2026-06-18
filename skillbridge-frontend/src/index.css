@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-900 antialiased selection:bg-brand-500 selection:text-white;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer components {
+  /* High-end glassmorphism style for UI components */
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-md border border-white/40 shadow-xl rounded-2xl;
+  }
+  
+  .glass-panel {
+    @apply bg-white/60 backdrop-blur-lg border border-white/50 shadow-lg rounded-xl;
+  }
+  
+  /* Vibrant Buttons */
+  .btn-primary {
+    @apply relative overflow-hidden bg-brand-600 hover:bg-brand-500 text-white font-semibold py-2.5 px-6 rounded-xl transition-all shadow-md hover:shadow-brand-500/30 active:scale-[0.98];
+  }
+  
+  .btn-secondary {
+    @apply bg-white hover:bg-slate-50 text-slate-700 font-medium py-2.5 px-6 rounded-xl border border-slate-200 transition-all shadow-sm active:scale-[0.98];
+  }
+  
+  .badge-green {
+    @apply bg-emerald-100 text-emerald-700 font-medium px-2.5 py-0.5 rounded-full text-xs border border-emerald-200;
+  }
+  
+  .badge-red {
+    @apply bg-rose-100 text-rose-700 font-medium px-2.5 py-0.5 rounded-full text-xs border border-rose-200;
+  }
+  
+  .badge-amber {
+    @apply bg-amber-100 text-amber-700 font-medium px-2.5 py-0.5 rounded-full text-xs border border-amber-200;
+  }
+}
+
+/* Custom scrollbar for sleekness */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}

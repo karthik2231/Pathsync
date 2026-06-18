@@ -1,0 +1,51 @@
+# Environment
+.env
+.env.local
+.env.*.local
+*.env
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+skillbridge/venv/
+
+# Node/Vite
+node_modules/
+skillbridge-frontend/node_modules/
+skillbridge-frontend/dist/
+dist-ssr/
+*.local
+
+# Tests
+.pytest_cache/
+pytest_errors.txt
+py_errors.txt
+collect.txt
+docker_out.txt
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+*.log
+docker-compose.override.yml

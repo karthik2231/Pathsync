@@ -1,0 +1,70 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          cd skillbridge
+          pip install -r requirements.txt
+      
+      - name: Run Pytest Validation
+        run: |
+          cd skillbridge
+          pytest
+
+  build-and-push:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build and push Backend Image
+        uses: docker/build-push-action@v4
+        with:
+          context: ./skillbridge
+          push: true
+          tags: ${{ secrets.DOCKER_USERNAME }}/skillbridge-backend:latest
+
+      - name: Build and push Frontend Image
+        uses: docker/build-push-action@v4
+        with:
+          context: ./skillbridge-frontend
+          push: true
+          tags: ${{ secrets.DOCKER_USERNAME }}/skillbridge-frontend:latest
+
+  deploy:
+    needs: build-and-push
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to EC2 Server
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USERNAME }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            cd /home/ubuntu/skillbridge
+            docker-compose pull
+            docker-compose up -d --remove-orphans
